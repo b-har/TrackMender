@@ -77,3 +77,33 @@ __recovery/
 
 # Castalia statistics file (since XE7 Castalia is distributed with Delphi)
 *.stat
+
+# ---- TrackMender ----
+
+# Local-only files. Never committed.
+/no-commit/
+
+# Delphi output folders
+/D12/Win32/
+/D12/Win64/
+
+# Lazarus / Free Pascal output folders
+/LAZ/bin/
+/LAZ/lib/
+backup/
+
+# Lazarus / Free Pascal intermediate files
+*.ppu
+*.compiled
+*.or
+*.rsj
+*.rst
+*.lrt
+*.dbg
+*.res.bak
+
+# Lazarus local files (session: open files, breakpoints)
+*.lps
+
+# Python cache (sync_laz.py)
+__pycache__/

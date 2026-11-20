@@ -1,0 +1,152 @@
+object frmSettings: TfrmSettings
+  Left = 0
+  Top = 0
+  BorderIcons = [biSystemMenu]
+  BorderStyle = Single
+  Caption = 'Settings'
+  ClientHeight = 286
+  ClientWidth = 580
+  Position = MainFormCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object lblMap: TLabel
+    StyledSettings = [Family, FontColor]
+    Position.X = 16.000000000000000000
+    Position.Y = 12.000000000000000000
+    Size.Width = 548.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 14.000000000000000000
+    TextSettings.Font.StyleExt = {00060000000000000004000000}
+    Text = 'Map'
+    TabOrder = 7
+  end
+  object lblTileUrl: TLabel
+    Position.X = 16.000000000000000000
+    Position.Y = 46.000000000000000000
+    Size.Width = 110.000000000000000000
+    Size.Height = 24.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.WordWrap = False
+    Text = 'Tile address'
+    TabOrder = 8
+  end
+  object edtTileUrl: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 0
+    Position.X = 130.000000000000000000
+    Position.Y = 46.000000000000000000
+    Size.Width = 434.000000000000000000
+    Size.Height = 24.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object lblApiKey: TLabel
+    Position.X = 16.000000000000000000
+    Position.Y = 78.000000000000000000
+    Size.Width = 110.000000000000000000
+    Size.Height = 24.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.WordWrap = False
+    Text = 'API key'
+    TabOrder = 9
+  end
+  object edtApiKey: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 1
+    Position.X = 130.000000000000000000
+    Position.Y = 78.000000000000000000
+    Size.Width = 434.000000000000000000
+    Size.Height = 24.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object lblMaxZoom: TLabel
+    Position.X = 16.000000000000000000
+    Position.Y = 110.000000000000000000
+    Size.Width = 110.000000000000000000
+    Size.Height = 24.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.WordWrap = False
+    Text = 'Highest zoom'
+    TabOrder = 10
+  end
+  object edtMaxZoom: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 2
+    FilterChar = '0123456789'
+    MaxLength = 2
+    Position.X = 130.000000000000000000
+    Position.Y = 110.000000000000000000
+    Size.Width = 60.000000000000000000
+    Size.Height = 24.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object lblAttribution: TLabel
+    Position.X = 16.000000000000000000
+    Position.Y = 142.000000000000000000
+    Size.Width = 110.000000000000000000
+    Size.Height = 24.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.WordWrap = False
+    Text = 'Map credit'
+    TabOrder = 11
+  end
+  object edtAttribution: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 3
+    Position.X = 130.000000000000000000
+    Position.Y = 142.000000000000000000
+    Size.Width = 434.000000000000000000
+    Size.Height = 24.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object lblHelp: TLabel
+    Position.X = 130.000000000000000000
+    Position.Y = 174.000000000000000000
+    Size.Width = 434.000000000000000000
+    Size.Height = 54.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.VertAlign = Leading
+    Text =
+      'In the tile address, {z} {x} {y} pick the tile and {key} is repl' +
+      'aced by the API key. The map credit is shown in the corner of th' +
+      'e map.'
+    TabOrder = 12
+  end
+  object btnDefaults: TButton
+    Hint = 'Fill in the OpenStreetMap map'
+    Position.X = 16.000000000000000000
+    Position.Y = 240.000000000000000000
+    Size.Width = 150.000000000000000000
+    Size.Height = 32.000000000000000000
+    Size.PlatformDefault = False
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 4
+    Text = 'Use OpenStreetMap'
+    OnClick = btnDefaultsClick
+  end
+  object btnOK: TButton
+    Default = True
+    ModalResult = 1
+    Position.X = 368.000000000000000000
+    Position.Y = 240.000000000000000000
+    Size.Width = 94.000000000000000000
+    Size.Height = 32.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 5
+    Text = 'OK'
+  end
+  object btnCancel: TButton
+    Cancel = True
+    ModalResult = 2
+    Position.X = 470.000000000000000000
+    Position.Y = 240.000000000000000000
+    Size.Width = 94.000000000000000000
+    Size.Height = 32.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 6
+    Text = 'Cancel'
+  end
+end

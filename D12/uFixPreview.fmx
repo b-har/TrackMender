@@ -1,0 +1,225 @@
+object frmFixPreview: TfrmFixPreview
+  Left = 0
+  Top = 0
+  BorderIcons = [biSystemMenu]
+  Caption = 'Fix'
+  ClientHeight = 430
+  ClientWidth = 1000
+  Padding.Left = 12.000000000000000000
+  Padding.Top = 10.000000000000000000
+  Padding.Right = 12.000000000000000000
+  Padding.Bottom = 10.000000000000000000
+  Position = MainFormCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object lblSummary: TLabel
+    Align = Top
+    StyledSettings = [Family, FontColor]
+    Position.X = 12.000000000000000000
+    Position.Y = 10.000000000000000000
+    Size.Width = 976.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 14.000000000000000000
+    TextSettings.Font.StyleExt = {00060000000000000004000000}
+    Text = 'Proposed timestamp changes'
+    TabOrder = 0
+  end
+  object lblNote: TLabel
+    Align = Top
+    Margins.Bottom = 8.000000000000000000
+    Position.X = 12.000000000000000000
+    Position.Y = 32.000000000000000000
+    Size.Width = 976.000000000000000000
+    Size.Height = 20.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Only timestamps change.'
+    TabOrder = 1
+  end
+  object rectChart: TRectangle
+    Align = Client
+    Fill.Color = claWhite
+    Size.Width = 976.000000000000000000
+    Size.Height = 318.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Color = xFFD0D4DA
+    XRadius = 4.000000000000000000
+    YRadius = 4.000000000000000000
+    object pbChart: TPaintBox
+      Align = Client
+      Margins.Left = 6.000000000000000000
+      Margins.Top = 6.000000000000000000
+      Margins.Right = 6.000000000000000000
+      Margins.Bottom = 6.000000000000000000
+      Size.Width = 964.000000000000000000
+      Size.Height = 306.000000000000000000
+      Size.PlatformDefault = False
+      OnPaint = pbChartPaint
+    end
+  end
+  object layButtons: TLayout
+    Align = Bottom
+    Margins.Top = 10.000000000000000000
+    Position.X = 12.000000000000000000
+    Position.Y = 388.000000000000000000
+    Size.Width = 976.000000000000000000
+    Size.Height = 32.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    object layLegend: TLayout
+      Align = Client
+      Size.Width = 430.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      object lineNow: TRectangle
+        Fill.Color = xFF8A8F98
+        Position.Y = 14.000000000000000000
+        Size.Width = 22.000000000000000000
+        Size.Height = 3.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+      end
+      object lblNow: TLabel
+        AutoSize = True
+        Position.X = 28.000000000000000000
+        Position.Y = 7.000000000000000000
+        Size.Width = 26.000000000000000000
+        Size.Height = 16.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.WordWrap = False
+        Text = 'Now'
+      end
+      object lineAfter: TRectangle
+        Fill.Color = xFFEB6834
+        Position.X = 76.000000000000000000
+        Position.Y = 14.000000000000000000
+        Size.Width = 22.000000000000000000
+        Size.Height = 3.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+      end
+      object lblAfter: TLabel
+        AutoSize = True
+        Position.X = 104.000000000000000000
+        Position.Y = 7.000000000000000000
+        Size.Width = 51.000000000000000000
+        Size.Height = 16.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.WordWrap = False
+        Text = 'After fix'
+      end
+      object rectBand: TRectangle
+        Fill.Color = xFFFDF0D5
+        Position.X = 180.000000000000000000
+        Position.Y = 8.000000000000000000
+        Size.Width = 22.000000000000000000
+        Size.Height = 15.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Color = xFFE8C87A
+      end
+      object lblBand: TLabel
+        AutoSize = True
+        Position.X = 208.000000000000000000
+        Position.Y = 7.000000000000000000
+        Size.Width = 120.000000000000000000
+        Size.Height = 16.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.WordWrap = False
+        Text = 'Timestamp changes'
+      end
+    end
+    object lblLevel: TLabel
+      Align = Right
+      Margins.Right = 8.000000000000000000
+      Position.X = 352.000000000000000000
+      Size.Width = 70.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.HorzAlign = Trailing
+      TextSettings.WordWrap = False
+      Text = 'Fix Level:'
+    end
+    object btnLevelMin: TSpeedButton
+      Align = Right
+      GroupName = 'reach'
+      Hint = 'Change as few points as possible'
+      Margins.Top = 3.000000000000000000
+      Margins.Right = 2.000000000000000000
+      Margins.Bottom = 3.000000000000000000
+      Position.X = 430.000000000000000000
+      Position.Y = 3.000000000000000000
+      Size.Width = 98.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      ParentShowHint = False
+      ShowHint = True
+      StaysPressed = True
+      Text = 'Minimum (3)'
+      OnClick = btnLevelClick
+    end
+    object btnLevelMid: TSpeedButton
+      Tag = 1
+      Align = Right
+      GroupName = 'reach'
+      Hint = 'Change about half of them'
+      Margins.Top = 3.000000000000000000
+      Margins.Right = 2.000000000000000000
+      Margins.Bottom = 3.000000000000000000
+      Position.X = 530.000000000000000000
+      Position.Y = 3.000000000000000000
+      Size.Width = 98.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      ParentShowHint = False
+      ShowHint = True
+      StaysPressed = True
+      Text = 'Less (5)'
+      OnClick = btnLevelClick
+    end
+    object btnLevelFull: TSpeedButton
+      Tag = 2
+      Align = Right
+      GroupName = 'reach'
+      Hint = 'Change every point that looks wrong'
+      IsPressed = True
+      Margins.Top = 3.000000000000000000
+      Margins.Right = 30.000000000000000000
+      Margins.Bottom = 3.000000000000000000
+      Position.X = 630.000000000000000000
+      Position.Y = 3.000000000000000000
+      Size.Width = 98.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      ParentShowHint = False
+      ShowHint = True
+      StaysPressed = True
+      Text = 'Default (9)'
+      OnClick = btnLevelClick
+    end
+    object btnOK: TButton
+      Align = Right
+      Default = True
+      ModalResult = 1
+      Margins.Right = 8.000000000000000000
+      Position.X = 772.000000000000000000
+      Size.Width = 98.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = '&Accept'
+    end
+    object btnCancel: TButton
+      Align = Right
+      Cancel = True
+      ModalResult = 2
+      Position.X = 878.000000000000000000
+      Size.Width = 98.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Text = '&Cancel'
+    end
+  end
+end

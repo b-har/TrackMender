@@ -1,0 +1,1122 @@
+object frmMain: TfrmMain
+  Left = 0
+  Top = 0
+  Caption = 'TrackMender - Frankie'#39's GPX Track Mender'
+  ClientHeight = 760
+  ClientWidth = 1240
+  Padding.Left = 8.000000000000000000
+  Padding.Top = 8.000000000000000000
+  Padding.Right = 8.000000000000000000
+  Padding.Bottom = 8.000000000000000000
+  Position = ScreenCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnCloseQuery = FormCloseQuery
+  DesignerMasterStyle = 0
+  object pnlToolbar: TLayout
+    Align = Top
+    Margins.Bottom = 8.000000000000000000
+    Position.X = 8.000000000000000000
+    Position.Y = 8.000000000000000000
+    Size.Width = 1224.000000000000000000
+    Size.Height = 44.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object btnOpen: TButton
+      Align = Left
+      CanFocus = False
+      Hint = 'Open a GPX file (Ctrl+O)'
+      Margins.Left = 6.000000000000000000
+      Margins.Top = 6.000000000000000000
+      Margins.Bottom = 6.000000000000000000
+      Position.X = 6.000000000000000000
+      Position.Y = 6.000000000000000000
+      Size.Width = 88.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 0
+      OnClick = btnOpenClick
+      object pathOpen: TPath
+        Align = Left
+        Data.Path = {
+          0C00000000000000000000400000904001000000000010410000904001000000
+          333333416666E640010000000000B0416666E640010000000000B04100009C41
+          010000000000004000009C410300000000000040000090400000000066668640
+          66668A410100000066669E4166668A410100000066669E419A99194101000000
+          666686409A991941030000006666864066668A41}
+        Fill.Color = xFF2F3640
+        HitTest = False
+        Margins.Left = 12.00000000000000000
+        Margins.Top = 8.00000000000000000
+        Margins.Bottom = 8.00000000000000000
+        Size.Width = 16.00000000000000000
+        Size.Height = 16.00000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        WrapMode = Fit
+      end
+      object lblOpen: TLabel
+        Align = Client
+        HitTest = False
+        Margins.Left = 8.000000000000000000
+        Text = 'Open'
+      end
+    end
+    object btnOpenMore: TButton
+      Align = Left
+      CanFocus = False
+      Hint = 'Recent files'
+      Margins.Left = 1.000000000000000000
+      Margins.Top = 6.000000000000000000
+      Margins.Bottom = 6.000000000000000000
+      Position.X = 95.000000000000000000
+      Position.Y = 6.000000000000000000
+      Size.Width = 20.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      ParentShowHint = False
+      ShowHint = True
+      OnClick = btnOpenMoreClick
+      object pathOpenMore: TPath
+        Align = Center
+        Data.Path = {
+          04000000000000000000A0400000104101000000000098410000104101000000
+          0000404100008441030000000000A04000001041}
+        Fill.Color = xFF2F3640
+        HitTest = False
+        Size.Width = 8.000000000000000000
+        Size.Height = 4.500000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        WrapMode = Fit
+      end
+    end
+    object btnSave: TButton
+      Align = Left
+      CanFocus = False
+      Enabled = False
+      Hint = 'Save in place; the previous version is kept as .bak (Ctrl+S)'
+      Margins.Left = 6.000000000000000000
+      Margins.Top = 6.000000000000000000
+      Margins.Bottom = 6.000000000000000000
+      Position.X = 121.000000000000000000
+      Position.Y = 6.000000000000000000
+      Size.Width = 88.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 1
+      OnClick = btnSaveClick
+      object pathSave: TPath
+        Align = Left
+        Data.Path = {
+          10000000000000000000404000004040010000009A9989410000404001000000
+          0000A8419A99D940010000000000A8410000A84101000000000040400000A841
+          030000000000404000004040000000006666C6409A9919410100000033337341
+          9A99194101000000333373416666A640010000006666C6406666A64003000000
+          6666C6409A991941000000006666C640666696410100000066668E4166669641
+          0100000066668E41CDCC4C41010000006666C640CDCC4C41030000006666C640
+          66669641}
+        Fill.Color = xFF2F3640
+        HitTest = False
+        Margins.Left = 12.00000000000000000
+        Margins.Top = 8.00000000000000000
+        Margins.Bottom = 8.00000000000000000
+        Size.Width = 16.00000000000000000
+        Size.Height = 16.00000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        WrapMode = Fit
+      end
+      object lblSave: TLabel
+        Align = Client
+        HitTest = False
+        Margins.Left = 8.000000000000000000
+        Text = 'Save'
+      end
+    end
+    object btnSaveMore: TButton
+      Align = Left
+      CanFocus = False
+      Enabled = False
+      Hint = 'Save as... (Ctrl+Shift+S)'
+      Margins.Left = 1.000000000000000000
+      Margins.Top = 6.000000000000000000
+      Margins.Bottom = 6.000000000000000000
+      Position.X = 210.000000000000000000
+      Position.Y = 6.000000000000000000
+      Size.Width = 20.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      ParentShowHint = False
+      ShowHint = True
+      OnClick = btnSaveMoreClick
+      object pathSaveMore: TPath
+        Align = Center
+        Data.Path = {
+          04000000000000000000A0400000104101000000000098410000104101000000
+          0000404100008441030000000000A04000001041}
+        Fill.Color = xFF2F3640
+        HitTest = False
+        Size.Width = 8.000000000000000000
+        Size.Height = 4.500000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        WrapMode = Fit
+      end
+    end
+    object btnUndo: TButton
+      Align = Left
+      CanFocus = False
+      Enabled = False
+      Hint = 'Undo (Ctrl+Z)'
+      Margins.Left = 18.000000000000000000
+      Margins.Top = 6.000000000000000000
+      Margins.Bottom = 6.000000000000000000
+      Position.X = 248.000000000000000000
+      Position.Y = 6.000000000000000000
+      Size.Width = 38.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 2
+      OnClick = btnUndoClick
+      object pathUndo: TPath
+        Align = Center
+        Data.Path = {
+          5700000000000000C3F5914154E37F4101000000BA4992416891794101000000
+          666692413333734101000000BA499241FED46C4101000000C3F5914112836641
+          0100000066669141713D604101000000CBA1904162105A4101000000E3A58F41
+          0000544101000000BC748E41AC1C4E410100000062108D414E62484101000000
+          D5788B412FDD42410100000021B089419A993D41010000005EBA874175933841
+          010000009A9985410AD7334101000000DF4F83418B6C2F41010000003BDF8041
+          F8532B41010000008D977C418195274101000000333377415839244101000000
+          81957141643B2141010000008FC26B41D7A31E4101000000A8C66541C9761C41
+          01000000FCA95F4139B41A4101000000A47059415A64194101000000D1225341
+          FA7E184101000000B4C84C414A0C1841010000007F6A46414A0C184101000000
+          62104041FA7E1841010000008FC239415A641941010000003789334139B41A41
+          010000008B6C2D41C9761C4101000000A4702741D7A31E4101000000B29D2141
+          643B21410100000000001C415839244101000000A69B16418195274101000000
+          BC741141F8532B410100000075930C418B6C2F4101000000000008410AD73341
+          0100000077BE03417593384101000000E3A5FF409A993D41010000001283F840
+          2FDD424101000000DD24F2404E624841010000001F85AB409A99354101000000
+          08ACB44014AE2D410100000079E9BE407B142641010000000E2DCA402FDD1E41
+          01000000986ED6406210184101000000B29DE3402DB2114101000000FCA9F140
+          D9CE0B4101000000713D0041986E064101000000000008418195014101000000
+          7B1410415C8FFA4001000000B0721841A01AF34001000000560E2141FED4EC40
+          0100000023DB2941D9CEE74001000000E5D032410000E4400100000054E33B41
+          A470E1400100000025064541F628E040010000000E2D4E41F628E04001000000
+          DF4F5741A470E140010000004E6260410000E4400100000010586941D9CEE740
+          01000000DD247241FED4EC400100000083C07A41A01AF340010000005C8F8141
+          5C8FFA40010000009A9985418195014101000000E17A8941986E064101000000
+          1B2F8D41D9CE0B41010000002DB290412DB2114101000000F4FD934162101841
+          01000000560E97412FDD1E41010000003BDF99417B14264101000000986E9C41
+          14AE2D410100000052B89E419A993541010000005EBAA0410AD73D4101000000
+          A470A241EC5146410100000023DBA3413D0A4F4101000000CFF7A44185EB5741
+          010000008FC2A541AAF1604101000000713DA6414A0C6A41010000006666A641
+          3333734101000000713DA6411D5A7C41010000008FC2A5415EBA824103000000
+          C3F5914154E37F410000000012831E41BA495C410100000039B48040643B8441
+          01000000AE4741402DB221410300000012831E41BA495C41}
+        Fill.Color = xFF2F3640
+        HitTest = False
+        Size.Width = 16.00000000000000000
+        Size.Height = 16.00000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        WrapMode = Fit
+      end
+    end
+    object btnRedo: TButton
+      Align = Left
+      CanFocus = False
+      Enabled = False
+      Hint = 'Redo (Ctrl+Y)'
+      Margins.Left = 4.000000000000000000
+      Margins.Top = 6.000000000000000000
+      Margins.Bottom = 6.000000000000000000
+      Position.X = 290.000000000000000000
+      Position.Y = 6.000000000000000000
+      Size.Width = 38.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 3
+      OnClick = btnRedoClick
+      object pathRedo: TPath
+        Align = Center
+        Data.Path = {
+          570000000000000085EB51405EBA8241010000007B144E401D5A7C4101000000
+          CDCC4C4033337341010000007B144E404A0C6A410100000085EB5140AAF16041
+          010000008941584085EB574101000000E92661403D0A4F4101000000E17A6C40
+          EC514641010000000E2D7A400AD73D4101000000B81E85409A99354101000000
+          A2458E4014AE2D4101000000128398407B14264101000000A8C6A3402FDD1E41
+          010000003108B04062101841010000004C37BD402DB21141010000009643CB40
+          D9CE0B41010000007B14DA40986E0641010000009A99E9408195014101000000
+          8FC2F9405C8FFA40010000007D3F0541A01AF3400100000023DB0D41FED4EC40
+          01000000F0A71641D9CEE74001000000B29D1F410000E4400100000021B02841
+          A470E14001000000F2D23141F628E04001000000DBF93A41F628E04001000000
+          AC1C4441A470E140010000001B2F4D410000E44001000000DD245641D9CEE740
+          01000000AAF15E41FED4EC4001000000508D6741A01AF3400100000085EB6F41
+          5C8FFA40010000000000784181950141010000008FC27F41986E064101000000
+          81958341D9CE0B4101000000931887412DB21141010000005A648A4162101841
+          01000000BC748D412FDD1E4101000000A24590417B14264101000000FED49241
+          14AE2D4101000000B81E95419A99354101000000C97683414E62484101000000
+          3BDF81412FDD424101000000871680419A993D410100000089417C4175933841
+          01000000000078410AD73341010000008B6C73418B6C2F4101000000448B6E41
+          F8532B41010000005A6469418195274101000000000064415839244101000000
+          4E625E41643B2141010000005C8F5841D7A31E410100000075935241C9761C41
+          01000000C9764C4139B41A4101000000713D46415A641941010000009EEF3F41
+          FA7E184101000000819539414A0C1841010000004C3733414A0C184101000000
+          2FDD2C41FA7E1841010000005C8F26415A641941010000000456204139B41A41
+          0100000058391A41C9761C4101000000713D1441D7A31E41010000007F6A0E41
+          643B214101000000CDCC08415839244101000000736803418195274101000000
+          1283FC40F8532B410100000083C0F2408B6C2F41010000009A99E9400AD73341
+          010000008716E14075933841010000007D3FD9409A993D4101000000AC1CD240
+          2FDD42410100000077BECB404E624841010000000E2DC640AC1C4E4101000000
+          7368C1400000544101000000D578BD4062105A41010000006666BA40713D6041
+          01000000F628B840128366410100000017D9B640FED46C41010000006666B640
+          333373410100000017D9B6406891794101000000F628B84054E37F4103000000
+          85EB51405EBA8241000000000AD7A7412DB2214101000000F2D29F41643B8441
+          01000000EE7C6141BA495C41030000000AD7A7412DB22141}
+        Fill.Color = xFF2F3640
+        HitTest = False
+        Size.Width = 16.00000000000000000
+        Size.Height = 16.00000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        WrapMode = Fit
+      end
+    end
+    object btnZoomIn: TButton
+      Align = Left
+      CanFocus = False
+      Hint = 'Zoom in (+)  -  double-click the map to zoom in on a spot'
+      Margins.Left = 18.000000000000000000
+      Margins.Top = 6.000000000000000000
+      Margins.Bottom = 6.000000000000000000
+      Position.X = 346.000000000000000000
+      Position.Y = 6.000000000000000000
+      Size.Width = 38.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 4
+      OnClick = btnZoomInClick
+      object pathZoomIn: TPath
+        Align = Center
+        Data.Path = {
+          0D0000000000000000002C410000904001000000000054410000904001000000
+          0000544100002C410100000000009C4100002C410100000000009C4100005441
+          010000000000544100005441010000000000544100009C410100000000002C41
+          00009C410100000000002C410000544101000000000090400000544101000000
+          0000904000002C410100000000002C4100002C410300000000002C4100009040}
+        Fill.Color = xFF2F3640
+        HitTest = False
+        Size.Width = 13.00000000000000000
+        Size.Height = 13.00000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        WrapMode = Fit
+      end
+    end
+    object btnZoomOut: TButton
+      Align = Left
+      CanFocus = False
+      Hint = 'Zoom out (-)'
+      Margins.Left = 4.000000000000000000
+      Margins.Top = 6.000000000000000000
+      Margins.Bottom = 6.000000000000000000
+      Position.X = 388.000000000000000000
+      Position.Y = 6.000000000000000000
+      Size.Width = 38.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 5
+      OnClick = btnZoomOutClick
+      object pathZoomOut: TPath
+        Align = Center
+        Data.Path = {
+          05000000000000000000904000002C410100000000009C4100002C4101000000
+          00009C4100005441010000000000904000005441030000000000904000002C41}
+        Fill.Color = xFF2F3640
+        HitTest = False
+        Size.Width = 13.00000000000000000
+        Size.Height = 13.00000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        WrapMode = Fit
+      end
+    end
+    object btnZoomFit: TButton
+      Align = Left
+      CanFocus = False
+      Enabled = False
+      Hint = 'Zoom to track (F6)'
+      Margins.Left = 4.000000000000000000
+      Margins.Top = 6.000000000000000000
+      Margins.Bottom = 6.000000000000000000
+      Position.X = 430.000000000000000000
+      Position.Y = 6.000000000000000000
+      Size.Width = 38.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 6
+      OnClick = btnZoomFitClick
+      object pathZoomFit: TPath
+        Align = Center
+        Data.Path = {
+          1C00000000000000000040400000404001000000666616410000404001000000
+          666616419A99A940010000009A99A9409A99A940010000009A99A94066661641
+          010000000000404066661641030000000000404000004040000000000000A841
+          66661641010000009A99954166661641010000009A9995419A99A94001000000
+          9A9969419A99A940010000009A99694100004040010000000000A84100004040
+          030000000000A84166661641000000000000A8410000A841010000009A996941
+          0000A841010000009A9969419A999541010000009A9995419A99954101000000
+          9A9995419A996941010000000000A8419A996941030000000000A8410000A841
+          00000000000040409A996941010000009A99A9409A996941010000009A99A940
+          9A99954101000000666616419A99954101000000666616410000A84101000000
+          000040400000A84103000000000040409A996941}
+        Fill.Color = xFF2F3640
+        HitTest = False
+        Size.Width = 16.00000000000000000
+        Size.Height = 16.00000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        WrapMode = Fit
+      end
+    end
+    object btnGraph: TButton
+      Align = Left
+      CanFocus = False
+      Hint = 'Elevation / speed graph (Ctrl+G)'
+      Margins.Left = 18.000000000000000000
+      Margins.Top = 6.000000000000000000
+      Margins.Bottom = 6.000000000000000000
+      Position.X = 486.000000000000000000
+      Position.Y = 6.000000000000000000
+      Size.Width = 38.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      ParentShowHint = False
+      ShowHint = True
+      StaysPressed = True
+      TabOrder = 7
+      OnClick = btnGraphClick
+      object pathGraph: TPath
+        Align = Center
+        Data.Path = {
+          0E00000000000000D7A3084021B07041010000006F12074152B8FA4001000000
+          FED45041D578354101000000E926A141E3A55B400100000017D9AE41DBF99E40
+          0100000068915541F853674101000000C5200C41A4702F4101000000295C7740
+          BC74844103000000D7A3084021B070410000000000004040CDCC944101000000
+          0000A841CDCC9441010000000000A8413333A34101000000000040403333A341
+          0300000000004040CDCC9441}
+        Fill.Color = xFF2F3640
+        HitTest = False
+        Size.Width = 16.00000000000000000
+        Size.Height = 16.00000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        WrapMode = Fit
+      end
+    end
+    object btnInfo: TButton
+      Align = Left
+      CanFocus = False
+      Hint = 'Show details of the selected point on the map'
+      Margins.Left = 4.000000000000000000
+      Margins.Top = 6.000000000000000000
+      Margins.Bottom = 6.000000000000000000
+      Position.X = 528.000000000000000000
+      Position.Y = 6.000000000000000000
+      Size.Width = 38.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      ParentShowHint = False
+      ShowHint = True
+      StaysPressed = True
+      TabOrder = 9
+      OnClick = btnInfoClick
+      object pathInfo: TPath
+        Align = Center
+        Data.Path = {
+          8000000000000000CDCCAC410000404101000000DD24AC414A0C544101000000
+          1B2FAA418FC2674101000000B6F3A641B4C87A41010000001283A24166668641
+          0100000091ED9C4183C08E4101000000D34D9641D34D96410100000083C08E41
+          91ED9C4101000000666686411283A24101000000B4C87A41B6F3A64101000000
+          8FC267411B2FAA41010000004A0C5441DD24AC410100000000004041CDCCAC41
+          01000000B6F32B41DD24AC4101000000713D18411B2FAA41010000004C370541
+          B6F3A641010000006666E6401283A24101000000F4FDC44091ED9C4101000000
+          B4C8A640D34D964101000000BA498C4083C08E41010000006DE76B4066668641
+          010000004E624840B4C87A41010000002B872E408FC267410100000017D91E40
+          4A0C5441010000009A991940000040410100000017D91E40B6F32B4101000000
+          2B872E40713D1841010000004E6248404C370541010000006DE76B406666E640
+          01000000BA498C40F4FDC44001000000B4C8A640B4C8A64001000000F4FDC440
+          BA498C40010000006666E6406DE76B40010000004C3705414E62484001000000
+          713D18412B872E4001000000B6F32B4117D91E4001000000000040419A991940
+          010000004A0C544117D91E40010000008FC267412B872E4001000000B4C87A41
+          4E62484001000000666686416DE76B400100000083C08E41BA498C4001000000
+          D34D9641B4C8A6400100000091ED9C41F4FDC440010000001283A2416666E640
+          01000000B6F3A6414C370541010000001B2FAA41713D184101000000DD24AC41
+          B6F32B4103000000CDCCAC410000404100000000EE7C9B410456304101000000
+          B6F39941AAF1204101000000986E97417B14124101000000C3F5934100000441
+          010000009A998F4154E3ED40010000008B6C8A41D34DD640010000002B878441
+          9A99C1400100000000007C41F628B0400100000085EB6D41A245A24001000000
+          560E5F412731984001000000FCA94F414A0C9240010000000000404100009040
+          01000000045630414A0C924001000000AAF1204127319840010000007B141241
+          A245A2400100000000000441F628B0400100000054E3ED409A99C14001000000
+          D34DD640D34DD640010000009A99C14054E3ED4001000000F628B04000000441
+          01000000A245A2407B1412410100000027319840AAF12041010000004A0C9240
+          04563041010000000000904000004041010000004A0C9240FCA94F4101000000
+          27319840560E5F4101000000A245A24085EB6D4101000000F628B04000007C41
+          010000009A99C1402B87844101000000D34DD6408B6C8A410100000054E3ED40
+          9A998F410100000000000441C3F59341010000007B141241986E974101000000
+          AAF12041B6F399410100000004563041EE7C9B41010000000000404100009C41
+          01000000FCA94F41EE7C9B4101000000560E5F41B6F399410100000085EB6D41
+          986E97410100000000007C41C3F59341010000002B8784419A998F4101000000
+          8B6C8A418B6C8A41010000009A998F412B87844101000000C3F5934100007C41
+          01000000986E974185EB6D4101000000B6F39941560E5F4101000000EE7C9B41
+          FCA94F410100000000009C410000404103000000EE7C9B410456304100000000
+          9A995541CDCCFC40010000002FDD5441E7FB03410100000039B4524133330941
+          01000000AE474F4114AE0D4101000000CDCC4A41A01A11410100000081954541
+          96431341010000000000404100001441010000007F6A3A419643134101000000
+          33333541A01A11410100000052B8304114AE0D4101000000C74B2D4133330941
+          01000000D1222B41E7FB03410100000066662A41CDCCFC4001000000D1222B41
+          CBA1F14001000000C74B2D413333E7400100000052B83041713DDE4001000000
+          333335415A64D740010000007F6A3A416F12D34001000000000040419A99D140
+          01000000819545416F12D34001000000CDCC4A415A64D74001000000AE474F41
+          713DDE400100000039B452413333E740010000002FDD5441CBA1F14003000000
+          9A995541CDCCFC40000000009A992D419A99294101000000666652419A992941
+          010000006666524100008841010000009A992D4100008841030000009A992D41
+          9A992941}
+        Fill.Color = xFF2F3640
+        HitTest = False
+        Size.Width = 16.00000000000000000
+        Size.Height = 16.00000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        WrapMode = Fit
+      end
+    end
+    object btnSettings: TButton
+      Align = Right
+      CanFocus = False
+      Hint = 'Units, and about TrackMender'
+      Margins.Left = 4.000000000000000000
+      Margins.Top = 6.000000000000000000
+      Margins.Right = 6.000000000000000000
+      Margins.Bottom = 6.000000000000000000
+      Position.X = 1180.000000000000000000
+      Position.Y = 6.000000000000000000
+      Size.Width = 38.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 8
+      OnClick = btnSettingsClick
+      object pathSettings: TPath
+        Align = Center
+        Data.Path = {
+          4200000000000000C1CA914125067D410100000025069F41CBA18E4101000000
+          CBA18E4125069F410100000025067D41C1CA91410100000096435B41B4C89841
+          010000001B2F57413789AD4101000000E5D028413789AD41010000006ABC2441
+          B4C8984101000000DBF90241C1CA914101000000D578C54025069F4101000000
+          6DE78340CBA18E4101000000FED4B84025067D41010000002FDD9C4096435B41
+          0100000046B613401B2F57410100000046B61340E5D02841010000002FDD9C40
+          6ABC244101000000FED4B840DBF90241010000006DE78340D578C54001000000
+          D578C5406DE7834001000000DBF90241FED4B840010000006ABC24412FDD9C40
+          01000000E5D0284146B61340010000001B2F574146B613400100000096435B41
+          2FDD9C400100000025067D41FED4B84001000000CBA18E416DE7834001000000
+          25069F41D578C54001000000C1CA9141DBF9024101000000B4C898416ABC2441
+          010000003789AD41E5D02841010000003789AD411B2F574101000000B4C89841
+          96435B4103000000C1CA914125067D410000000091ED76416F12354101000000
+          77BE734175932A41010000005C8F6E4160E52041010000009A99674166661841
+          01000000A01A5F41A4701141010000008B6C554189410C410100000091ED4A41
+          6F120941010000000000404100000841010000006F1235416F12094101000000
+          75932A4189410C410100000060E52041A4701141010000006666184166661841
+          01000000A470114160E520410100000089410C4175932A41010000006F120941
+          6F123541010000000000084100004041010000006F12094191ED4A4101000000
+          89410C418B6C554101000000A4701141A01A5F4101000000666618419A996741
+          0100000060E520415C8F6E410100000075932A4177BE7341010000006F123541
+          91ED76410100000000004041000078410100000091ED4A4191ED764101000000
+          8B6C554177BE734101000000A01A5F415C8F6E41010000009A9967419A996741
+          010000005C8F6E41A01A5F410100000077BE73418B6C55410100000091ED7641
+          91ED4A410100000000007841000040410300000091ED76416F123541}
+        Fill.Color = xFF2F3640
+        HitTest = False
+        Size.Width = 16.00000000000000000
+        Size.Height = 16.00000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        WrapMode = Fit
+      end
+    end
+    object rectWarn: TRectangle
+      Align = Client
+      Fill.Color = xFFFFF3D1
+      Margins.Left = 18.000000000000000000
+      Margins.Top = 6.000000000000000000
+      Margins.Right = 8.000000000000000000
+      Margins.Bottom = 6.000000000000000000
+      Size.Width = 668.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Color = xFFE2B93B
+      ParentShowHint = False
+      ShowHint = True
+      Visible = False
+      XRadius = 6.000000000000000000
+      YRadius = 6.000000000000000000
+      object lblWarn: TLabel
+        Align = Client
+        HitTest = False
+        Margins.Left = 12.000000000000000000
+        Margins.Right = 8.000000000000000000
+        TextSettings.WordWrap = False
+        Text = 'Points with missing elevation. Normalize?'
+      end
+      object btnFixEle: TButton
+        Align = Right
+        CanFocus = False
+        Hint = 'Fill in missing / bad elevation from the neighbouring points'
+        Margins.Top = 3.000000000000000000
+        Margins.Right = 4.000000000000000000
+        Margins.Bottom = 3.000000000000000000
+        Position.X = 366.000000000000000000
+        Position.Y = 3.000000000000000000
+        Size.Width = 84.000000000000000000
+        Size.Height = 26.000000000000000000
+        Size.PlatformDefault = False
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 0
+        Text = 'Elevation'
+        OnClick = btnFixClick
+      end
+      object btnFixSpeed: TButton
+        Align = Right
+        CanFocus = False
+        Hint = 'Fill in missing / out-of-order timestamps from the neighbouring points'
+        Margins.Top = 3.000000000000000000
+        Margins.Right = 4.000000000000000000
+        Margins.Bottom = 3.000000000000000000
+        Position.X = 454.000000000000000000
+        Position.Y = 3.000000000000000000
+        Size.Width = 84.000000000000000000
+        Size.Height = 26.000000000000000000
+        Size.PlatformDefault = False
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 1
+        Text = 'Timestamps'
+        OnClick = btnFixClick
+      end
+      object btnFixBoth: TButton
+        Align = Right
+        CanFocus = False
+        Hint = 'Repair these points from their good neighbours (can be undone)'
+        Margins.Top = 3.000000000000000000
+        Margins.Right = 4.000000000000000000
+        Margins.Bottom = 3.000000000000000000
+        Position.X = 542.000000000000000000
+        Position.Y = 3.000000000000000000
+        Size.Width = 88.000000000000000000
+        Size.Height = 26.000000000000000000
+        Size.PlatformDefault = False
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 2
+        Text = 'Normalize'
+        OnClick = btnFixClick
+      end
+      object btnWarnClose: TButton
+        Align = Right
+        CanFocus = False
+        Hint = 'Dismiss'
+        Margins.Top = 3.000000000000000000
+        Margins.Right = 4.000000000000000000
+        Margins.Bottom = 3.000000000000000000
+        Position.X = 634.000000000000000000
+        Position.Y = 3.000000000000000000
+        Size.Width = 30.000000000000000000
+        Size.Height = 26.000000000000000000
+        Size.PlatformDefault = False
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 3
+        OnClick = btnWarnCloseClick
+        object pathWarnClose: TPath
+          Align = Center
+          Data.Path = {
+            0D000000000000002FDD8941713DA24001000000A4709741448BD84001000000
+            E9265B410000404101000000A47097412FDD8941010000002FDD8941A4709741
+            0100000000004041E9265B4101000000448BD840A470974101000000713DA240
+            2FDD89410100000017D924410000404101000000713DA240448BD84001000000
+            448BD840713DA240010000000000404117D92441030000002FDD8941713DA240}
+          Fill.Color = xFF2F3640
+          HitTest = False
+          Size.Width = 16.00000000000000000
+          Size.Height = 16.00000000000000000
+          Size.PlatformDefault = False
+          Stroke.Kind = None
+          WrapMode = Fit
+        end
+      end
+    end
+  end
+  object pnlStatus: TPanel
+    Align = Bottom
+    Margins.Top = 8.000000000000000000
+    Position.X = 8.000000000000000000
+    Position.Y = 724.000000000000000000
+    Size.Width = 1224.000000000000000000
+    Size.Height = 28.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object lblChanges: TLabel
+      Align = Right
+      HitTest = False
+      Margins.Right = 18.000000000000000000
+      Position.X = 546.000000000000000000
+      Size.Width = 330.000000000000000000
+      Size.Height = 28.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.HorzAlign = Trailing
+      TextSettings.WordWrap = False
+    end
+    object lblCursor: TLabel
+      Align = Right
+      HitTest = False
+      Margins.Right = 10.000000000000000000
+      Position.X = 894.000000000000000000
+      Size.Width = 250.000000000000000000
+      Size.Height = 28.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.HorzAlign = Trailing
+      TextSettings.WordWrap = False
+    end
+    object lblStatus: TLabel
+      Align = Client
+      HitTest = False
+      Margins.Left = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      TextSettings.WordWrap = False
+      Text = 'Open a GPX file, or drop one onto the window.'
+    end
+  end
+  object pnlGraph: TPanel
+    Align = Bottom
+    Position.X = 8.000000000000000000
+    Position.Y = 496.000000000000000000
+    Size.Width = 1224.000000000000000000
+    Size.Height = 220.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+    Visible = False
+    object layGraphHead: TLayout
+      Align = Top
+      Size.Width = 1224.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object lblGraphInfo: TLabel
+        Align = Client
+        HitTest = False
+        Margins.Left = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        TextSettings.WordWrap = False
+        Text = 'Elevation and speed'
+      end
+      object lblOutlier: TLabel
+        Align = Right
+        HitTest = False
+        Margins.Right = 8.000000000000000000
+        Position.X = 470.000000000000000000
+        Size.Width = 250.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.WordWrap = False
+      end
+      object lblOutHead: TLabel
+        Align = Right
+        HitTest = False
+        Margins.Right = 6.000000000000000000
+        Position.X = 400.000000000000000000
+        Size.Width = 58.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.HorzAlign = Trailing
+        TextSettings.WordWrap = False
+        Text = 'Outliers:'
+      end
+      object btnOutPrev: TButton
+        Align = Right
+        CanFocus = False
+        Enabled = False
+        Hint = 'Next outlier marker to the left of the selected point (Alt+P or Shift+F8)'
+        Margins.Top = 3.000000000000000000
+        Margins.Right = 2.000000000000000000
+        Margins.Bottom = 3.000000000000000000
+        Position.X = 730.000000000000000000
+        Position.Y = 3.000000000000000000
+        Size.Width = 48.000000000000000000
+        Size.Height = 26.000000000000000000
+        Size.PlatformDefault = False
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 0
+        Text = '&Prev'
+        OnClick = btnOutPrevClick
+      end
+      object btnOutNext: TButton
+        Align = Right
+        CanFocus = False
+        Enabled = False
+        Hint = 'Next outlier marker to the right of the selected point (Alt+N or F8)'
+        Margins.Top = 3.000000000000000000
+        Margins.Right = 14.000000000000000000
+        Margins.Bottom = 3.000000000000000000
+        Position.X = 780.000000000000000000
+        Position.Y = 3.000000000000000000
+        Size.Width = 48.000000000000000000
+        Size.Height = 26.000000000000000000
+        Size.PlatformDefault = False
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 1
+        Text = '&Next'
+        OnClick = btnOutNextClick
+      end
+      object lblFixHead: TLabel
+        Align = Right
+        HitTest = False
+        Margins.Right = 6.000000000000000000
+        Position.X = 850.000000000000000000
+        Size.Width = 28.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.HorzAlign = Trailing
+        TextSettings.WordWrap = False
+        Text = 'Fix:'
+      end
+      object btnFixEle1: TButton
+        Align = Right
+        CanFocus = False
+        Enabled = False
+        Hint = 'Preview elevation changes near the selected point (Alt+E or F7)'
+        Margins.Top = 3.000000000000000000
+        Margins.Right = 2.000000000000000000
+        Margins.Bottom = 3.000000000000000000
+        Position.X = 880.000000000000000000
+        Position.Y = 3.000000000000000000
+        Size.Width = 92.000000000000000000
+        Size.Height = 26.000000000000000000
+        Size.PlatformDefault = False
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 2
+        Text = '&Elevation...'
+        OnClick = btnFixEle1Click
+      end
+      object btnFixTime1: TButton
+        Align = Right
+        CanFocus = False
+        Enabled = False
+        Hint = 'Preview timestamp changes near the selected point (Alt+T or Shift+F7)'
+        Margins.Top = 3.000000000000000000
+        Margins.Right = 14.000000000000000000
+        Margins.Bottom = 3.000000000000000000
+        Position.X = 975.000000000000000000
+        Position.Y = 3.000000000000000000
+        Size.Width = 108.000000000000000000
+        Size.Height = 26.000000000000000000
+        Size.PlatformDefault = False
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 3
+        Text = '&Timestamps...'
+        OnClick = btnFixTime1Click
+      end
+      object btnXDist: TSpeedButton
+        Align = Right
+        GroupName = 'graphx'
+        Hint = 'Plot against distance from the start'
+        IsPressed = True
+        Margins.Top = 3.000000000000000000
+        Margins.Bottom = 3.000000000000000000
+        Position.X = 1100.000000000000000000
+        Position.Y = 3.000000000000000000
+        Size.Width = 66.000000000000000000
+        Size.Height = 26.000000000000000000
+        Size.PlatformDefault = False
+        ParentShowHint = False
+        ShowHint = True
+        StaysPressed = True
+        Text = 'Distance'
+        OnClick = btnXAxisClick
+      end
+      object btnXTime: TSpeedButton
+        Tag = 1
+        Align = Right
+        GroupName = 'graphx'
+        Hint = 'Plot against time since the start'
+        Margins.Left = 2.000000000000000000
+        Margins.Top = 3.000000000000000000
+        Margins.Right = 6.000000000000000000
+        Margins.Bottom = 3.000000000000000000
+        Position.X = 1170.000000000000000000
+        Position.Y = 3.000000000000000000
+        Size.Width = 48.000000000000000000
+        Size.Height = 26.000000000000000000
+        Size.PlatformDefault = False
+        ParentShowHint = False
+        ShowHint = True
+        StaysPressed = True
+        Text = 'Time'
+        OnClick = btnXAxisClick
+      end
+    end
+  end
+  object splGraph: TSplitter
+    Align = Bottom
+    Cursor = crVSplit
+    MinSize = 120.000000000000000000
+    Position.X = 8.000000000000000000
+    Position.Y = 488.000000000000000000
+    Size.Width = 1224.000000000000000000
+    Size.Height = 8.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+  end
+  object pnlSegments: TPanel
+    Align = Left
+    Position.X = 8.000000000000000000
+    Position.Y = 60.000000000000000000
+    Size.Width = 240.000000000000000000
+    Size.Height = 656.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    Visible = False
+    object lstSegments: TListBox
+      Align = Client
+      Margins.Left = 1.000000000000000000
+      Margins.Top = 1.000000000000000000
+      Margins.Right = 1.000000000000000000
+      Margins.Bottom = 1.000000000000000000
+      TabOrder = 0
+      DisableFocusEffect = True
+      ItemHeight = 30.000000000000000000
+      DefaultItemStyles.ItemStyle = ''
+      DefaultItemStyles.GroupHeaderStyle = ''
+      DefaultItemStyles.GroupFooterStyle = ''
+      OnChange = lstSegmentsChange
+      OnItemClick = lstSegmentsItemClick
+    end
+  end
+  object splSegments: TSplitter
+    Align = Left
+    Cursor = crHSplit
+    MinSize = 120.000000000000000000
+    Position.X = 248.000000000000000000
+    Position.Y = 60.000000000000000000
+    Size.Width = 8.000000000000000000
+    Size.Height = 656.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+  end
+  object pnlMap: TPanel
+    Align = Client
+    TabOrder = 3
+    object layInfo: TLayout
+      Align = Top
+      Margins.Left = 12.000000000000000000
+      Margins.Top = 12.000000000000000000
+      Margins.Right = 12.000000000000000000
+      Position.X = 12.000000000000000000
+      Position.Y = 12.000000000000000000
+      Size.Width = 600.000000000000000000
+      Size.Height = 142.000000000000000000
+      Size.PlatformDefault = False
+      Visible = False
+      object rectInfo: TRectangle
+        Align = Right
+        Fill.Color = xF7FFFFFF
+        HitTest = False
+        Position.X = 320.000000000000000000
+        Size.Width = 280.000000000000000000
+        Size.Height = 142.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Color = xFFC3C7CE
+        XRadius = 6.000000000000000000
+        YRadius = 6.000000000000000000
+        object lblInfoTitle: TLabel
+          Align = Top
+          HitTest = False
+          Margins.Left = 12.000000000000000000
+          Margins.Top = 6.000000000000000000
+          Margins.Right = 12.000000000000000000
+          Position.X = 12.000000000000000000
+          Position.Y = 6.000000000000000000
+          Size.Width = 256.000000000000000000
+          Size.Height = 24.000000000000000000
+          Size.PlatformDefault = False
+          StyledSettings = [Family, Size, FontColor]
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.WordWrap = False
+          Text = 'Point'
+        end
+        object lblInfoKeys: TLabel
+          Align = Left
+          HitTest = False
+          Margins.Left = 12.000000000000000000
+          Margins.Bottom = 8.000000000000000000
+          Position.X = 12.000000000000000000
+          Position.Y = 30.000000000000000000
+          Size.Width = 74.000000000000000000
+          Size.Height = 104.000000000000000000
+          Size.PlatformDefault = False
+          StyledSettings = [Family, Size, Style]
+          TextSettings.FontColor = xFF5B6068
+          TextSettings.VertAlign = Leading
+          TextSettings.WordWrap = False
+          Text = 'Latitude'#13#10'Longitude'#13#10'Elevation'#13#10'Speed'#13#10'Time'#13#10'Distance'
+        end
+        object lblInfoVals: TLabel
+          Align = Client
+          HitTest = False
+          Margins.Right = 12.000000000000000000
+          Margins.Bottom = 8.000000000000000000
+          TextSettings.VertAlign = Leading
+          TextSettings.WordWrap = False
+          Text = '-'
+        end
+      end
+    end
+  end
+  object dlgOpen: TOpenDialog
+    DefaultExt = 'gpx'
+    Filter = 'GPX files (*.gpx)|*.gpx|All files (*.*)|*.*'
+    Options = [ofHideReadOnly, ofFileMustExist, ofEnableSizing]
+    Left = 48
+    Top = 96
+  end
+  object dlgSave: TSaveDialog
+    DefaultExt = 'gpx'
+    Filter = 'GPX files (*.gpx)|*.gpx|All files (*.*)|*.*'
+    Options = [ofOverwritePrompt, ofHideReadOnly, ofEnableSizing]
+    Left = 48
+    Top = 152
+  end
+  object popOpen: TPopupMenu
+    Left = 224
+    Top = 96
+    object miRecentHead: TMenuItem
+      Enabled = False
+      Text = 'Recent files'
+    end
+    object miRecent1: TMenuItem
+      Text = '1'
+      Visible = False
+      OnClick = miRecentClick
+    end
+    object miRecent2: TMenuItem
+      Tag = 1
+      Text = '2'
+      Visible = False
+      OnClick = miRecentClick
+    end
+    object miRecent3: TMenuItem
+      Tag = 2
+      Text = '3'
+      Visible = False
+      OnClick = miRecentClick
+    end
+    object miRecent4: TMenuItem
+      Tag = 3
+      Text = '4'
+      Visible = False
+      OnClick = miRecentClick
+    end
+    object miRecent5: TMenuItem
+      Tag = 4
+      Text = '5'
+      Visible = False
+      OnClick = miRecentClick
+    end
+    object miRecentNone: TMenuItem
+      Enabled = False
+      Text = 'None yet'
+    end
+  end
+  object popSave: TPopupMenu
+    Left = 312
+    Top = 96
+    object miSaveAs: TMenuItem
+      Text = 'Save as...'
+      OnClick = miSaveAsClick
+    end
+  end
+  object popUnits: TPopupMenu
+    Left = 136
+    Top = 96
+    object miUnitsHead: TMenuItem
+      Enabled = False
+      Text = 'Units'
+    end
+    object miImperial: TMenuItem
+      GroupIndex = 1
+      RadioItem = True
+      Text = 'Imperial    ft, mph, miles'
+      OnClick = miUnitsClick
+    end
+    object miMetric: TMenuItem
+      Tag = 1
+      GroupIndex = 1
+      RadioItem = True
+      Text = 'Metric    m, km/h, km'
+      OnClick = miUnitsClick
+    end
+    object miAviation: TMenuItem
+      Tag = 2
+      GroupIndex = 1
+      RadioItem = True
+      Text = 'Aviation    ft, knots, nautical miles'
+      OnClick = miUnitsClick
+    end
+    object miMarine: TMenuItem
+      Tag = 3
+      GroupIndex = 1
+      RadioItem = True
+      Text = 'Marine    m, knots, nautical miles'
+      OnClick = miUnitsClick
+    end
+    object miSettingsSep: TMenuItem
+      Text = '-'
+    end
+    object miSettings: TMenuItem
+      Text = 'Settings...'
+      OnClick = miSettingsClick
+    end
+    object miAboutSep: TMenuItem
+      Text = '-'
+    end
+    object miAbout: TMenuItem
+      Text = 'About TrackMender...'
+      OnClick = miAboutClick
+    end
+  end
+end

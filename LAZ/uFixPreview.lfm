@@ -1,0 +1,213 @@
+object frmFixPreview: TfrmFixPreview
+  Left = 300
+  Height = 430
+  Top = 200
+  Width = 1000
+  BorderIcons = [biSystemMenu]
+  Caption = 'Fix'
+  ChildSizing.LeftRightSpacing = 12
+  ChildSizing.TopBottomSpacing = 10
+  ClientHeight = 430
+  ClientWidth = 1000
+  DesignTimePPI = 96
+  Position = poMainFormCenter
+  ShowHint = True
+  LCLVersion = '4.8.0.0'
+  object lblSummary: TLabel
+    Left = 12
+    Height = 22
+    Top = 10
+    Width = 976
+    Align = alTop
+    AutoSize = False
+    Caption = 'Proposed timestamp changes'
+    Font.Height = -15
+    Font.Style = [fsBold]
+    Layout = tlCenter
+    ParentFont = False
+  end
+  object lblNote: TLabel
+    Left = 12
+    Height = 20
+    Top = 32
+    Width = 976
+    Align = alTop
+    AutoSize = False
+    BorderSpacing.Bottom = 8
+    Caption = 'Only timestamps change.'
+    Layout = tlCenter
+  end
+  object rectChart: TPanel
+    Left = 12
+    Height = 318
+    Top = 60
+    Width = 976
+    Align = alClient
+    BevelColor = 14341328
+    BevelOuter = bvNone
+    BorderStyle = bsSingle
+    ClientHeight = 314
+    ClientWidth = 972
+    Color = clWhite
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 0
+    object pbChart: TPaintBox
+      Left = 6
+      Height = 302
+      Top = 6
+      Width = 960
+      Align = alClient
+      BorderSpacing.Around = 6
+      OnPaint = pbChartPaint
+    end
+  end
+  object layButtons: TPanel
+    Left = 12
+    Height = 32
+    Top = 388
+    Width = 976
+    Align = alBottom
+    BorderSpacing.Top = 10
+    BevelOuter = bvNone
+    ClientHeight = 32
+    ClientWidth = 976
+    TabOrder = 1
+    object layLegend: TPanel
+      Left = 0
+      Height = 32
+      Top = 0
+      Width = 422
+      Align = alClient
+      BevelOuter = bvNone
+      ClientHeight = 32
+      ClientWidth = 422
+      TabOrder = 2
+      object lineNow: TShape
+        Left = 0
+        Height = 3
+        Top = 14
+        Width = 22
+        Brush.Color = 9998218
+        Pen.Style = psClear
+      end
+      object lblNow: TLabel
+        Left = 28
+        Height = 15
+        Top = 8
+        Width = 24
+        Caption = 'Now'
+      end
+      object lineAfter: TShape
+        Left = 76
+        Height = 3
+        Top = 14
+        Width = 22
+        Brush.Color = 3434731
+        Pen.Style = psClear
+      end
+      object lblAfter: TLabel
+        Left = 104
+        Height = 15
+        Top = 8
+        Width = 42
+        Caption = 'After fix'
+      end
+      object rectBand: TShape
+        Left = 180
+        Height = 15
+        Top = 8
+        Width = 22
+        Brush.Color = 14020861
+        Pen.Color = 8046824
+      end
+      object lblBand: TLabel
+        Left = 208
+        Height = 15
+        Top = 8
+        Width = 104
+        Caption = 'Timestamp changes'
+      end
+    end
+    object lblLevel: TLabel
+      Left = 352
+      Height = 32
+      Top = 0
+      Width = 70
+      Align = alRight
+      Alignment = taRightJustify
+      AutoSize = False
+      BorderSpacing.Right = 8
+      Caption = 'Fix Level:'
+      Layout = tlCenter
+    end
+    object btnLevelMin: TSpeedButton
+      Left = 430
+      Height = 26
+      Hint = 'Change as few points as possible'
+      Top = 3
+      Width = 98
+      Align = alRight
+      BorderSpacing.Top = 3
+      BorderSpacing.Right = 2
+      BorderSpacing.Bottom = 3
+      Caption = 'Minimum (3)'
+      GroupIndex = 1
+      OnClick = btnLevelClick
+    end
+    object btnLevelMid: TSpeedButton
+      Tag = 1
+      Left = 530
+      Height = 26
+      Hint = 'Change about half of them'
+      Top = 3
+      Width = 98
+      Align = alRight
+      BorderSpacing.Top = 3
+      BorderSpacing.Right = 2
+      BorderSpacing.Bottom = 3
+      Caption = 'Less (5)'
+      GroupIndex = 1
+      OnClick = btnLevelClick
+    end
+    object btnLevelFull: TSpeedButton
+      Tag = 2
+      Left = 630
+      Height = 26
+      Hint = 'Change every point that looks wrong'
+      Top = 3
+      Width = 98
+      Align = alRight
+      BorderSpacing.Top = 3
+      BorderSpacing.Right = 28
+      BorderSpacing.Bottom = 3
+      Caption = 'Default (9)'
+      Down = True
+      GroupIndex = 1
+      OnClick = btnLevelClick
+    end
+    object btnOK: TButton
+      Left = 762
+      Height = 32
+      Top = 0
+      Width = 98
+      Align = alRight
+      BorderSpacing.Right = 8
+      Caption = '&Accept'
+      Default = True
+      ModalResult = 1
+      TabOrder = 0
+    end
+    object btnCancel: TButton
+      Left = 878
+      Height = 32
+      Top = 0
+      Width = 98
+      Align = alRight
+      Cancel = True
+      Caption = '&Cancel'
+      ModalResult = 2
+      TabOrder = 1
+    end
+  end
+end

@@ -1,0 +1,711 @@
+object frmMain: TfrmMain
+  Left = 300
+  Height = 760
+  Top = 150
+  Width = 1240
+  AllowDropFiles = True
+  Caption = 'TrackMender - Frankie''s GPX Track Mender'
+  ChildSizing.LeftRightSpacing = 8
+  ChildSizing.TopBottomSpacing = 8
+  ClientHeight = 760
+  ClientWidth = 1240
+  DesignTimePPI = 96
+  KeyPreview = True
+  OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnDropFiles = FormDropFiles
+  OnKeyDown = FormKeyDown
+  Position = poScreenCenter
+  ShowHint = True
+  LCLVersion = '4.8.0.0'
+  object pnlToolbar: TPanel
+    Left = 8
+    Height = 44
+    Top = 8
+    Width = 1224
+    Align = alTop
+    BorderSpacing.Bottom = 8
+    BevelOuter = bvNone
+    ClientHeight = 44
+    ClientWidth = 1224
+    TabOrder = 0
+    object btnOpen: TSpeedButton
+      Left = 6
+      Height = 32
+      Hint = 'Open a GPX file (Ctrl+O)'
+      Top = 6
+      Width = 72
+      Align = alLeft
+      BorderSpacing.Left = 6
+      BorderSpacing.Top = 6
+      BorderSpacing.Bottom = 6
+      Caption = 'Open'
+      OnClick = btnOpenClick
+    end
+    object btnOpenMore: TSpeedButton
+      Left = 79
+      Height = 32
+      Hint = 'Recent files'
+      Top = 6
+      Width = 18
+      Align = alLeft
+      BorderSpacing.Left = 1
+      BorderSpacing.Top = 6
+      BorderSpacing.Bottom = 6
+      Caption = '▾'
+      OnClick = btnOpenMoreClick
+    end
+    object btnSave: TSpeedButton
+      Left = 103
+      Height = 32
+      Hint = 'Save in place; the previous version is kept as .bak (Ctrl+S)'
+      Top = 6
+      Width = 72
+      Align = alLeft
+      BorderSpacing.Left = 6
+      BorderSpacing.Top = 6
+      BorderSpacing.Bottom = 6
+      Caption = 'Save'
+      Enabled = False
+      OnClick = btnSaveClick
+    end
+    object btnSaveMore: TSpeedButton
+      Left = 176
+      Height = 32
+      Hint = 'Save as... (Ctrl+Shift+S)'
+      Top = 6
+      Width = 18
+      Align = alLeft
+      BorderSpacing.Left = 1
+      BorderSpacing.Top = 6
+      BorderSpacing.Bottom = 6
+      Caption = '▾'
+      Enabled = False
+      OnClick = btnSaveMoreClick
+    end
+    object btnUndo: TSpeedButton
+      Left = 212
+      Height = 32
+      Hint = 'Undo (Ctrl+Z)'
+      Top = 6
+      Width = 60
+      Align = alLeft
+      BorderSpacing.Left = 18
+      BorderSpacing.Top = 6
+      BorderSpacing.Bottom = 6
+      Caption = 'Undo'
+      Enabled = False
+      OnClick = btnUndoClick
+    end
+    object btnRedo: TSpeedButton
+      Left = 276
+      Height = 32
+      Hint = 'Redo (Ctrl+Y)'
+      Top = 6
+      Width = 60
+      Align = alLeft
+      BorderSpacing.Left = 4
+      BorderSpacing.Top = 6
+      BorderSpacing.Bottom = 6
+      Caption = 'Redo'
+      Enabled = False
+      OnClick = btnRedoClick
+    end
+    object btnZoomIn: TSpeedButton
+      Left = 354
+      Height = 32
+      Hint = 'Zoom in (+)  -  double-click the map to zoom in on a spot'
+      Top = 6
+      Width = 38
+      Align = alLeft
+      BorderSpacing.Left = 18
+      BorderSpacing.Top = 6
+      BorderSpacing.Bottom = 6
+      Caption = '+'
+      Font.Height = -19
+      ParentFont = False
+      OnClick = btnZoomInClick
+    end
+    object btnZoomOut: TSpeedButton
+      Left = 396
+      Height = 32
+      Hint = 'Zoom out (-)'
+      Top = 6
+      Width = 38
+      Align = alLeft
+      BorderSpacing.Left = 4
+      BorderSpacing.Top = 6
+      BorderSpacing.Bottom = 6
+      Caption = '-'
+      Font.Height = -19
+      ParentFont = False
+      OnClick = btnZoomOutClick
+    end
+    object btnZoomFit: TSpeedButton
+      Left = 438
+      Height = 32
+      Hint = 'Zoom to track (F6)'
+      Top = 6
+      Width = 48
+      Align = alLeft
+      BorderSpacing.Left = 4
+      BorderSpacing.Top = 6
+      BorderSpacing.Bottom = 6
+      Caption = 'Fit'
+      Enabled = False
+      OnClick = btnZoomFitClick
+    end
+    object btnGraph: TSpeedButton
+      Left = 504
+      Height = 32
+      Hint = 'Elevation / speed graph (Ctrl+G)'
+      Top = 6
+      Width = 64
+      Align = alLeft
+      AllowAllUp = True
+      BorderSpacing.Left = 18
+      BorderSpacing.Top = 6
+      BorderSpacing.Bottom = 6
+      Caption = 'Graph'
+      GroupIndex = 1
+      OnClick = btnGraphClick
+    end
+    object btnInfo: TSpeedButton
+      Left = 572
+      Height = 32
+      Hint = 'Show details of the selected point on the map'
+      Top = 6
+      Width = 52
+      Align = alLeft
+      AllowAllUp = True
+      BorderSpacing.Left = 4
+      BorderSpacing.Top = 6
+      BorderSpacing.Bottom = 6
+      Caption = 'Info'
+      GroupIndex = 2
+      OnClick = btnInfoClick
+    end
+    object rectWarn: TPanel
+      Left = 604
+      Height = 32
+      Top = 6
+      Width = 542
+      Align = alClient
+      BorderSpacing.Left = 18
+      BorderSpacing.Top = 6
+      BorderSpacing.Right = 8
+      BorderSpacing.Bottom = 6
+      BevelColor = 3914210
+      BevelOuter = bvNone
+      BorderStyle = bsSingle
+      ClientHeight = 28
+      ClientWidth = 538
+      Color = 13759487
+      ParentBackground = False
+      ParentColor = False
+      TabOrder = 0
+      Visible = False
+      object lblWarn: TLabel
+        Left = 12
+        Height = 28
+        Top = 0
+        Width = 228
+        Align = alClient
+        AutoSize = False
+        BorderSpacing.Left = 12
+        BorderSpacing.Right = 8
+        Caption = 'Points with missing elevation. Normalize?'
+        Layout = tlCenter
+      end
+      object btnFixEle: TSpeedButton
+        Left = 248
+        Height = 24
+        Hint = 'Fill in missing / bad elevation from the neighbouring points'
+        Top = 2
+        Width = 76
+        Align = alRight
+        BorderSpacing.Top = 2
+        BorderSpacing.Right = 4
+        BorderSpacing.Bottom = 2
+        Caption = 'Elevation'
+        OnClick = btnFixClick
+      end
+      object btnFixSpeed: TSpeedButton
+        Left = 328
+        Height = 24
+        Hint = 'Fill in missing / out-of-order timestamps from the neighbouring points'
+        Top = 2
+        Width = 84
+        Align = alRight
+        BorderSpacing.Top = 2
+        BorderSpacing.Right = 4
+        BorderSpacing.Bottom = 2
+        Caption = 'Timestamps'
+        OnClick = btnFixClick
+      end
+      object btnFixBoth: TSpeedButton
+        Left = 416
+        Height = 24
+        Hint = 'Repair these points from their good neighbours (can be undone)'
+        Top = 2
+        Width = 84
+        Align = alRight
+        BorderSpacing.Top = 2
+        BorderSpacing.Right = 4
+        BorderSpacing.Bottom = 2
+        Caption = 'Normalize'
+        OnClick = btnFixClick
+      end
+      object btnWarnClose: TSpeedButton
+        Left = 504
+        Height = 24
+        Hint = 'Dismiss'
+        Top = 2
+        Width = 30
+        Align = alRight
+        BorderSpacing.Top = 2
+        BorderSpacing.Right = 4
+        BorderSpacing.Bottom = 2
+        Caption = 'x'
+        Flat = True
+        OnClick = btnWarnCloseClick
+      end
+    end
+    object btnSettings: TSpeedButton
+      Left = 1154
+      Height = 32
+      Hint = 'Units, and about TrackMender'
+      Top = 6
+      Width = 64
+      Align = alRight
+      BorderSpacing.Left = 4
+      BorderSpacing.Top = 6
+      BorderSpacing.Right = 6
+      BorderSpacing.Bottom = 6
+      Caption = 'Units'
+      OnClick = btnSettingsClick
+    end
+  end
+  object pnlSegments: TPanel
+    Left = 8
+    Height = 656
+    Top = 60
+    Width = 240
+    Align = alLeft
+    BevelOuter = bvNone
+    ClientHeight = 656
+    ClientWidth = 240
+    TabOrder = 1
+    Visible = False
+    object lstSegments: TListBox
+      Left = 0
+      Height = 656
+      Top = 0
+      Width = 240
+      Align = alClient
+      ItemHeight = 0
+      TabOrder = 0
+      OnSelectionChange = lstSegmentsSelectionChange
+    end
+  end
+  object splSegments: TSplitter
+    Left = 248
+    Height = 656
+    Top = 60
+    Width = 6
+    MinSize = 120
+    Visible = False
+  end
+  object pnlMap: TPanel
+    Left = 254
+    Height = 656
+    Top = 60
+    Width = 978
+    Align = alClient
+    BevelOuter = bvNone
+    ClientHeight = 656
+    ClientWidth = 978
+    TabOrder = 2
+    object layInfo: TPanel
+      Left = 686
+      Height = 142
+      Top = 12
+      Width = 280
+      Anchors = [akTop, akRight]
+      BevelColor = 13551555
+      BevelOuter = bvNone
+      BorderStyle = bsSingle
+      ClientHeight = 138
+      ClientWidth = 276
+      Color = clWhite
+      ParentBackground = False
+      ParentColor = False
+      TabOrder = 0
+      Visible = False
+      object lblInfoTitle: TLabel
+        Left = 12
+        Height = 24
+        Top = 6
+        Width = 252
+        Align = alTop
+        AutoSize = False
+        BorderSpacing.Left = 12
+        BorderSpacing.Top = 6
+        BorderSpacing.Right = 12
+        Caption = 'Point'
+        Font.Style = [fsBold]
+        Layout = tlCenter
+        ParentFont = False
+      end
+      object lblInfoKeys: TLabel
+        Left = 12
+        Height = 100
+        Top = 30
+        Width = 74
+        Align = alLeft
+        AutoSize = False
+        BorderSpacing.Left = 12
+        BorderSpacing.Bottom = 8
+        Caption = 'Latitude'#13#10'Longitude'#13#10'Elevation'#13#10'Speed'#13#10'Time'#13#10'Distance'
+        Font.Color = 6840411
+        ParentFont = False
+      end
+      object lblInfoVals: TLabel
+        Left = 86
+        Height = 100
+        Top = 30
+        Width = 178
+        Align = alClient
+        AutoSize = False
+        BorderSpacing.Right = 12
+        BorderSpacing.Bottom = 8
+        Caption = '-'
+      end
+    end
+  end
+  object splGraph: TSplitter
+    Cursor = crVSplit
+    Left = 8
+    Height = 6
+    Top = 490
+    Width = 1224
+    Align = alBottom
+    MinSize = 120
+    ResizeAnchor = akBottom
+    Visible = False
+  end
+  object pnlGraph: TPanel
+    Left = 8
+    Height = 220
+    Top = 496
+    Width = 1224
+    Align = alBottom
+    BevelOuter = bvNone
+    ClientHeight = 220
+    ClientWidth = 1224
+    TabOrder = 3
+    Visible = False
+    object layGraphHead: TPanel
+      Left = 0
+      Height = 32
+      Top = 0
+      Width = 1224
+      Align = alTop
+      BevelOuter = bvNone
+      ClientHeight = 32
+      ClientWidth = 1224
+      TabOrder = 0
+      object lblGraphInfo: TLabel
+        Left = 10
+        Height = 32
+        Top = 0
+        Width = 352
+        Align = alClient
+        AutoSize = False
+        BorderSpacing.Left = 10
+        BorderSpacing.Right = 10
+        Caption = 'Elevation and speed'
+        Layout = tlCenter
+      end
+      object lblOutlier: TLabel
+        Left = 470
+        Height = 32
+        Top = 0
+        Width = 250
+        Align = alRight
+        AutoSize = False
+        BorderSpacing.Right = 8
+        Layout = tlCenter
+      end
+      object lblOutHead: TLabel
+        Left = 400
+        Height = 32
+        Top = 0
+        Width = 58
+        Align = alRight
+        Alignment = taRightJustify
+        AutoSize = False
+        BorderSpacing.Right = 6
+        Caption = 'Outliers:'
+        Layout = tlCenter
+      end
+      object btnOutPrev: TSpeedButton
+        Left = 730
+        Height = 26
+        Hint = 'Next outlier marker to the left of the selected point (Alt+P or Shift+F8)'
+        Top = 3
+        Width = 48
+        Align = alRight
+        BorderSpacing.Top = 3
+        BorderSpacing.Right = 2
+        BorderSpacing.Bottom = 3
+        Caption = '&Prev'
+        Enabled = False
+        OnClick = btnOutPrevClick
+      end
+      object btnOutNext: TSpeedButton
+        Left = 780
+        Height = 26
+        Hint = 'Next outlier marker to the right of the selected point (Alt+N or F8)'
+        Top = 3
+        Width = 48
+        Align = alRight
+        BorderSpacing.Top = 3
+        BorderSpacing.Right = 14
+        BorderSpacing.Bottom = 3
+        Caption = '&Next'
+        Enabled = False
+        OnClick = btnOutNextClick
+      end
+      object lblFixHead: TLabel
+        Left = 850
+        Height = 32
+        Top = 0
+        Width = 28
+        Align = alRight
+        Alignment = taRightJustify
+        AutoSize = False
+        BorderSpacing.Right = 6
+        Caption = 'Fix:'
+        Layout = tlCenter
+      end
+      object btnFixEle1: TSpeedButton
+        Left = 880
+        Height = 26
+        Hint = 'Preview elevation changes near the selected point (Alt+E or F7)'
+        Top = 3
+        Width = 92
+        Align = alRight
+        BorderSpacing.Top = 3
+        BorderSpacing.Right = 2
+        BorderSpacing.Bottom = 3
+        Caption = '&Elevation...'
+        Enabled = False
+        OnClick = btnFixEle1Click
+      end
+      object btnFixTime1: TSpeedButton
+        Left = 975
+        Height = 26
+        Hint = 'Preview timestamp changes near the selected point (Alt+T or Shift+F7)'
+        Top = 3
+        Width = 108
+        Align = alRight
+        BorderSpacing.Top = 3
+        BorderSpacing.Right = 14
+        BorderSpacing.Bottom = 3
+        Caption = '&Timestamps...'
+        Enabled = False
+        OnClick = btnFixTime1Click
+      end
+      object btnXDist: TSpeedButton
+        Left = 1100
+        Height = 26
+        Hint = 'Plot against distance from the start'
+        Top = 3
+        Width = 66
+        Align = alRight
+        BorderSpacing.Top = 3
+        BorderSpacing.Bottom = 3
+        Caption = 'Distance'
+        Down = True
+        GroupIndex = 3
+        OnClick = btnXAxisClick
+      end
+      object btnXTime: TSpeedButton
+        Tag = 1
+        Left = 1170
+        Height = 26
+        Hint = 'Plot against time since the start'
+        Top = 3
+        Width = 48
+        Align = alRight
+        BorderSpacing.Left = 2
+        BorderSpacing.Top = 3
+        BorderSpacing.Right = 6
+        BorderSpacing.Bottom = 3
+        Caption = 'Time'
+        GroupIndex = 3
+        OnClick = btnXAxisClick
+      end
+    end
+  end
+  object pnlStatus: TPanel
+    Left = 8
+    Height = 28
+    Top = 724
+    Width = 1224
+    Align = alBottom
+    BorderSpacing.Top = 8
+    BevelOuter = bvLowered
+    ClientHeight = 28
+    ClientWidth = 1224
+    TabOrder = 4
+    object lblStatus: TLabel
+      Left = 11
+      Height = 26
+      Top = 1
+      Width = 594
+      Align = alClient
+      AutoSize = False
+      BorderSpacing.Left = 10
+      BorderSpacing.Right = 10
+      Caption = 'Open a GPX file, or drop one onto the window.'
+      Layout = tlCenter
+    end
+    object lblChanges: TLabel
+      Left = 615
+      Height = 26
+      Top = 1
+      Width = 330
+      Align = alRight
+      Alignment = taRightJustify
+      AutoSize = False
+      BorderSpacing.Right = 18
+      Layout = tlCenter
+    end
+    object lblCursor: TLabel
+      Left = 963
+      Height = 26
+      Top = 1
+      Width = 250
+      Align = alRight
+      Alignment = taRightJustify
+      AutoSize = False
+      BorderSpacing.Right = 10
+      Layout = tlCenter
+    end
+  end
+  object dlgOpen: TOpenDialog
+    DefaultExt = '.gpx'
+    Filter = 'GPX files (*.gpx)|*.gpx|All files (*.*)|*.*'
+    Options = [ofHideReadOnly, ofFileMustExist, ofEnableSizing]
+    Left = 48
+    Top = 96
+  end
+  object dlgSave: TSaveDialog
+    DefaultExt = '.gpx'
+    Filter = 'GPX files (*.gpx)|*.gpx|All files (*.*)|*.*'
+    Options = [ofOverwritePrompt, ofHideReadOnly, ofEnableSizing]
+    Left = 48
+    Top = 152
+  end
+  object popOpen: TPopupMenu
+    Left = 224
+    Top = 96
+    object miRecentHead: TMenuItem
+      Caption = 'Recent files'
+      Enabled = False
+    end
+    object miRecent1: TMenuItem
+      Caption = '1'
+      Visible = False
+      OnClick = miRecentClick
+    end
+    object miRecent2: TMenuItem
+      Tag = 1
+      Caption = '2'
+      Visible = False
+      OnClick = miRecentClick
+    end
+    object miRecent3: TMenuItem
+      Tag = 2
+      Caption = '3'
+      Visible = False
+      OnClick = miRecentClick
+    end
+    object miRecent4: TMenuItem
+      Tag = 3
+      Caption = '4'
+      Visible = False
+      OnClick = miRecentClick
+    end
+    object miRecent5: TMenuItem
+      Tag = 4
+      Caption = '5'
+      Visible = False
+      OnClick = miRecentClick
+    end
+    object miRecentNone: TMenuItem
+      Caption = 'None yet'
+      Enabled = False
+    end
+  end
+  object popSave: TPopupMenu
+    Left = 312
+    Top = 96
+    object miSaveAs: TMenuItem
+      Caption = 'Save as...'
+      OnClick = miSaveAsClick
+    end
+  end
+  object popUnits: TPopupMenu
+    Left = 136
+    Top = 96
+    object miUnitsHead: TMenuItem
+      Caption = 'Units'
+      Enabled = False
+    end
+    object miImperial: TMenuItem
+      Caption = 'Imperial    ft, mph, miles'
+      GroupIndex = 1
+      RadioItem = True
+      OnClick = miUnitsClick
+    end
+    object miMetric: TMenuItem
+      Tag = 1
+      Caption = 'Metric    m, km/h, km'
+      GroupIndex = 1
+      RadioItem = True
+      OnClick = miUnitsClick
+    end
+    object miAviation: TMenuItem
+      Tag = 2
+      Caption = 'Aviation    ft, knots, nautical miles'
+      GroupIndex = 1
+      RadioItem = True
+      OnClick = miUnitsClick
+    end
+    object miMarine: TMenuItem
+      Tag = 3
+      Caption = 'Marine    m, knots, nautical miles'
+      GroupIndex = 1
+      RadioItem = True
+      OnClick = miUnitsClick
+    end
+    object miSettingsSep: TMenuItem
+      Caption = '-'
+    end
+    object miSettings: TMenuItem
+      Caption = 'Settings...'
+      OnClick = miSettingsClick
+    end
+    object miAboutSep: TMenuItem
+      Caption = '-'
+    end
+    object miAbout: TMenuItem
+      Caption = 'About TrackMender...'
+      OnClick = miAboutClick
+    end
+  end
+end
